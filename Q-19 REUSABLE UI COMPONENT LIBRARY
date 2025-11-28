@@ -1,0 +1,96 @@
+const Button = ({ text, color = "white", bg = "blue", onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        padding: "10px 20px",
+        backgroundColor: bg,
+        color: color,
+        border: "none",
+        borderRadius: "6px",
+        cursor: "pointer",
+        fontSize: "16px",
+        marginTop: "10px",
+      }}
+    >
+      {text}
+    </button>
+  );
+};
+
+const Input = ({ placeholder, width = "250px", border = "1px solid #ccc" }) => {
+  return (
+    <input
+      placeholder={placeholder}
+      style={{
+        padding: "10px",
+        width: width,
+        border: border,
+        borderRadius: "6px",
+        fontSize: "16px",
+        marginTop: "10px",
+      }}
+    />
+  );
+};
+
+const Card = ({ title, content, bg = "#f5f5f5", color = "black", padding = "20px" }) => {
+  return (
+    <div
+      style={{
+        backgroundColor: bg,
+        color: color,
+        padding: padding,
+        borderRadius: "10px",
+        width: "300px",
+        margin: "20px 0",
+        boxShadow: "0px 2px 6px rgba(0,0,0,0.15)",
+      }}
+    >
+      <h3>{title}</h3>
+      <p>{content}</p>
+    </div>
+  );
+};
+
+const HomePage = () => {
+  return (
+    <div style={{ padding: "20px", border: "1px solid #ddd", marginTop: "30px" }}>
+      <h2>Home Page</h2>
+      <Input placeholder="Search..." width="300px" />
+      <Button text="Search" bg="green" color="white" />
+      <Card
+        title="Welcome!"
+        content="This is the Home Page card using light theme."
+        bg="#e3f2fd"
+      />
+    </div>
+  );
+};
+
+const ProfilePage = () => {
+  return (
+    <div style={{ padding: "20px", border: "1px solid #ddd", marginTop: "30px" }}>
+      <h2>Profile Page</h2>
+      <Input placeholder="Enter Name" width="250px" border="2px solid purple" />
+      <Button text="Update Profile" bg="purple" color="white" />
+      <Card
+        title="About Me"
+        content="This card uses a dark theme to show flexibility."
+        bg="#333"
+        color="white"
+        padding="25px"
+      />
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <div style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1>Reusable UI Component Library Demo</h1>
+      <HomePage />
+      <ProfilePage />
+    </div>
+  );
+}
